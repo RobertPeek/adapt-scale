@@ -1,0 +1,16 @@
+{
+  "name": "adapt-scale",
+  "version": "1.0.0",
+  "framework": ">=5.19.1",
+  "homepage": "https://github.com/RobertPeek/adapt-scale",
+  "issues": "https://github.com/RobertPeek/adapt-scale/issues/",
+  "displayName" : "Scale Question",
+  "component" : "scale",
+  "description": "A scale type question component",
+  "main": "/js/adapt-scale.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-component"
+  ],
+  "license": "GPL-3.0"
+}

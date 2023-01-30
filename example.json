@@ -1,0 +1,56 @@
+{
+  "_id": "c-105",
+  "_parentId": "b-55",
+  "_type": "component",
+  "_component": "scale",
+  "_classes": "",
+  "_layout": "full",
+  "_attempts": 1,
+  "_shouldDisplayAttempts": false,
+  "_questionWeight": 1,
+  "_isRandom": false,
+  "_canShowModelAnswer": true,
+  "_canShowFeedback": true,
+  "_canShowMarking": true,
+  "_recordInteraction": true,
+  "title": "Scale Question",
+  "displayTitle": "Scale Question",
+  "body": "",
+  "instruction": "",
+  "_options": [
+    {
+      "text": "1"
+    },
+    {
+      "text": "2"
+    },
+    {
+      "text": "3"
+    }
+  ],
+  "_items": [
+    {
+      "text": "This is option 1.",
+      "_correctOption": 1
+    },
+    {
+      "text": "This is option 2.",
+      "_correctOption": 2
+    },
+    {
+      "text": "This is option 3.",
+      "_correctOption": 3
+    }
+  ],
+  "_feedback": {
+    "correct": "Congratulations, this is the correct feedback.",
+    "_incorrect": {
+      "notFinal": "",
+      "final": "This feedback will appear if you answered the question incorrectly."
+    },
+    "_partlyCorrect": {
+      "notFinal": "",
+      "final": "This feedback will appear if you answered the question correctly."
+    }
+  }
+}

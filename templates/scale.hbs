@@ -1,0 +1,48 @@
+<div class="scale component__inner">
+    {{> component this}}
+    <div class="scale__widget component__widget {{#unless _isEnabled}} is-disabled {{#if _isInteractionComplete}} is-complete is-submitted show-user-answer {{#if _isCorrect}}is-correct{{/if}} {{/if}} {{/unless}}">
+
+      <div class="scale__options">
+        <div class="scale__options-inner">
+          {{#each _options}}
+          <div class="scale__options-option" aria-hidden="true" option-index={{@index}} style="-ms-grid-column: {{math @index "+" 2}}; -ms-grid-column-span: {{math @index "+" 3}}; -ms-grid-row: 1; -ms-grid-row-span: 2;">
+            {{{text}}}
+          </div>
+          {{/each}}
+        </div>
+      </div>
+
+      {{#each _items}}
+      <div class="scale-item item-{{@index}} {{#unless ../_isEnabled}}{{#if ../_canShowMarking}}{{#if _isCorrect}}is-correct{{else}}is-incorrect{{/if}}{{/if}}{{/unless}}" data-adapt-index={{_index}}>
+
+        <div class="scale-item__inner">
+          <div class="scale-item__title">
+            {{{compile text}}}
+          </div>
+        </div>
+
+        <div class="scale-item__options">
+          {{#each ../_options}}
+          <button class="scale-item__option js-scale-option" grid-index="{{@../index}}" data-index={{@index}} data-adapt-index={{../_index}} data-item-index="{{@../index}}" aria-label="">
+
+            <span class="scale-item__option-title">
+              {{{text}}}
+            </span>
+
+            <span class="scale-item__state">
+              <span class="scale-item__icon scale-item__icon-answer icon"></span>
+              <span class="scale-item__icon scale-item__icon-correct icon icon-tick"></span>
+              <span class="scale-item__icon scale-item__icon-incorrect icon icon-cross"></span>
+            </span>
+          </button>
+          {{/each}}
+        </div>
+
+      </div>
+      {{/each}}
+
+    </div>
+
+    <div class="btn__container"></div>
+
+</div>

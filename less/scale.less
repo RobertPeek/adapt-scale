@@ -1,0 +1,233 @@
+.scale {
+
+  &__widget {
+    margin-top: @component-body-margin;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+    &.is-disabled {
+      .scale-item__title {
+        color: @disabled-inverted;
+        background-color: @disabled;
+      }
+      .scale-item__icon-correct {
+        color: @item-color-inverted-selected;
+      }
+      .scale-item__icon-incorrect {
+        color: @item-color-inverted-selected;
+      }
+    }
+
+    &.show-user-answer {
+      .scale-item__icon {
+        display: none;
+      }
+      .is-incorrect {
+        .is-selected .scale-item__icon-incorrect {
+          display: block;
+        }
+      }
+      .is-correct {
+        .is-selected .scale-item__icon-correct {
+          display: block;
+        }
+      }
+    }
+
+    &.show-correct-answer {
+      .scale-item__icon {
+        display: none;
+      }
+      .is-incorrect .is-selected .scale-item__icon-correct,
+      .is-correct .is-selected .scale-item__icon-correct {
+        display: block;
+      }
+    }
+  }
+
+  &__options {
+    position: relative;
+    display: contents;
+  }
+
+  &__options-inner {
+    position: relative;
+    display: contents;
+  }
+
+  &__options-option {
+    position: relative;
+
+    color: @item-color-inverted-selected;
+    background-color: @item-color-selected;
+    font-weight: @font-weight-bold;
+
+    text-align: center;
+
+    padding: @item-padding;
+
+    min-width: @icon-size + @item-padding;
+
+    margin-left: @item-margin / 2;
+    margin-right: @item-margin / 2;
+    margin-bottom: @item-margin;
+  }
+}
+
+.scale-item {
+  position: relative;
+  display: contents;
+
+  &__inner {
+    position: relative;
+    display: flex;
+    margin-right: @item-margin / 2;
+    font-weight: @font-weight-bold;
+    margin-bottom: @item-margin;
+  }
+
+  &__options {
+    position: relative;
+    display: contents;
+  }
+
+  &__option {
+    position: relative;
+    display: flex;
+    flex: 1;
+    padding: @icon-size;
+    border-color: @item-color-inverted !important;
+    background-color: @item-color;
+    color: @item-color-inverted;
+
+    margin-left: @item-margin / 2;
+    margin-right: @item-margin / 2;
+    margin-bottom: @item-margin;
+
+    .scale-item__icon-answer {
+      color: @item-color-inverted;
+      &:before {
+        content: "\e96f";
+      }
+    }
+
+    .no-touch &:not(.is-disabled):not(.is-locked):hover {
+      background-color: @item-color-hover;
+      color: @item-color-inverted-hover;
+      .transition(background-color @duration ease-in, color @duration ease-in;);
+
+      .scale-item__icon-answer {
+        color: @item-color-inverted-hover;
+      }
+    }
+
+    &.is-disabled {
+      color: @disabled-inverted;
+      background-color: @disabled;
+    }
+
+    &.is-selected {
+      color: @item-color-inverted-selected;
+      background-color: @item-color-selected;
+
+      .scale-item__icon-answer {
+        color: @item-color-inverted-selected;
+        &:before {
+          content: "\e96e";
+        }
+      }
+    }
+  }
+
+  &__option-title {
+    display: none;
+  }
+
+  &__title {
+    position: relative;
+    width: 100%;
+    padding: @item-padding;
+    color: @item-color-inverted-selected;
+    background-color: @item-color-selected;
+  }
+
+  &__icon-correct {
+    color: @item-color-inverted;
+    display: none;
+  }
+
+  &__icon-incorrect {
+    color: @item-color-inverted;
+    display: none;
+  }
+
+  &__state {
+    position: absolute;
+    background: none;
+    width: @icon-size;
+    height: @icon-size;
+    top: 50%;
+    left: 50%;
+    margin-top: -(@icon-size / 2);
+    margin-left: -(@icon-size / 2);
+  }
+}
+
+.is-scale-mobile {
+  .scale {
+
+    &__widget {
+      display: block;
+
+      &.is-disabled {
+        .scale-item__options {
+          background-color: @disabled;
+        }
+      }
+    }
+
+    &__options {
+      display: none;
+    }
+  }
+
+  .scale-item {
+    display: block;
+    margin-bottom: @item-margin;
+
+    &__inner {
+      display: block;
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+
+    &__options {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      background-color: @item-color-selected;
+    }
+
+    &__option {
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+      padding: @btn-padding;
+      margin: 0;
+    }
+
+    &__option-title {
+      display: block;
+    }
+
+    &__state {
+      position: relative;
+      top: inherit;
+      left: inherit;
+      margin-top: @item-padding;
+      margin-left: 0;
+    }
+  }
+}
